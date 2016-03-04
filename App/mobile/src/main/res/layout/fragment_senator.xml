@@ -1,0 +1,145 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SenatorFragment"
+    android:background="@drawable/flag">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|top"
+        android:background="#df000000">
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/pic"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_toRightOf="@+id/pic"
+            android:gravity="center"
+            android:id="@+id/linearLayout">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Senator"
+                android:id="@+id/roleSen"
+                android:gravity="center_horizontal"
+                android:textColor="#ffffff"
+                android:textIsSelectable="false"
+                android:textSize="30dp"
+                android:layout_alignParentRight="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First Name"
+                android:id="@+id/Name"
+                android:gravity="center_horizontal"
+                android:textColor="#ffffff"
+                android:textIsSelectable="false"
+                android:textSize="30dp"
+                android:layout_alignParentRight="false" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Party Affil"
+                android:id="@+id/partySen"
+                android:gravity="center_horizontal"
+                android:textColor="#ffffff"
+                android:textIsSelectable="false"
+                android:textSize="25dp"
+                android:layout_alignParentRight="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:id="@+id/linearlayout2"
+            android:layout_marginTop="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Website URL"
+                android:id="@+id/website"
+                android:gravity="center_horizontal"
+                android:textColor="#ffffff"
+                android:textIsSelectable="false"
+                android:textSize="25dp"
+                android:layout_alignParentRight="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Address"
+                android:id="@+id/email"
+                android:gravity="center_horizontal"
+                android:textColor="#ffffff"
+                android:textIsSelectable="false"
+                android:textSize="25dp"
+                android:layout_alignParentRight="false" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Twitter ID"
+                android:id="@+id/twitter"
+                android:gravity="center_horizontal"
+                android:textColor="#ffffff"
+                android:textIsSelectable="false"
+                android:textSize="25dp"
+                android:layout_alignParentRight="false" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="180dp"
+            android:layout_below="@+id/linearlayout2"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="#ce0b0000"
+            android:focusable="false"
+            android:measureWithLargestChild="false"
+            android:nestedScrollingEnabled="true"
+            android:scrollIndicators="right"
+            android:id="@+id/linearLayout3">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tweet Goes Here"
+                android:id="@+id/tweet"
+                android:gravity="center_horizontal"
+                android:textColor="#ffffff"
+                android:textIsSelectable="false"
+                android:textSize="25dp"
+                android:layout_alignParentRight="false" />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Learn More"
+            android:id="@+id/more"
+            android:layout_below="@+id/linearLayout3"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+</FrameLayout>

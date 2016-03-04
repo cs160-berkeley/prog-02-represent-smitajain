@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.wearable.view.BoxInsetLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="220dp"
+    android:layout_width="200dp">
+    <android.support.wearable.view.CardFrame
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:id="@+id/cardframe"
+        android:layout_marginRight="60dp">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:fontFamily="sans-serif-light"
+                android:layout_height="wrap_content"
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+            <TextView
+                android:fontFamily="sans-serif-light"
+                android:layout_height="wrap_content"
+                android:id="@+id/party"
+                android:layout_width="match_parent"
+                android:textColor="@color/black"
+                android:textSize="14sp"/>
+            <TextView
+                android:fontFamily="sans-serif-light"
+                android:layout_height="wrap_content"
+                android:id="@+id/role"
+                android:layout_width="match_parent"
+                android:textColor="@color/black"
+                android:textSize="14sp"/>
+        </LinearLayout>
+    </android.support.wearable.view.CardFrame>
+</android.support.wearable.view.BoxInsetLayout>

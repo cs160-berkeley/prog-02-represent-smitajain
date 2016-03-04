@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Represent!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="google_app_id">238942</string>
+</resources>
