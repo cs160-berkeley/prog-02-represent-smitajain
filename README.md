@@ -12,7 +12,7 @@ See [Demo Video] (https://www.youtube.com/watch?v=0FkK1Bwxajc)
 
 ## Screenshots
 
-<img src="screenshots/main.png" height="400" alt="Screenshot"/>
+<img src="screenshots/homepage.JPG" height="400" alt="Screenshot"/>
 
 ## Acknowledgments
 Shoutout to Stack Overflow
