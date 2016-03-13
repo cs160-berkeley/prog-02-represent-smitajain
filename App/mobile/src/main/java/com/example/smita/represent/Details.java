@@ -134,7 +134,7 @@ public class Details extends Activity {
                 }else if(bundleData.getString("party").equals("R")){
                     party.setText("Republican");
                 }else{
-                    party.setText("Independant");
+                    party.setText("Independent");
                 }
 
                 String[] termsp = bundleData.getString("term").split("-");
