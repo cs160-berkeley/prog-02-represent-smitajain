@@ -38,4 +38,6 @@ public class PresidentView extends CardFragment{
         return myView;
     }
 
+
+
 }

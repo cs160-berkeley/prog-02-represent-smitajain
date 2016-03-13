@@ -18,6 +18,7 @@ import com.google.android.gms.wearable.Wearable;
 public class PhoneToWatchService extends Service {
 
     private GoogleApiClient mApiClient;
+    private String data;
 
     @Override
     public void onCreate() {
@@ -50,8 +51,10 @@ public class PhoneToWatchService extends Service {
         Bundle extras = intent.getExtras();
 
         final String from = extras.getString("from");
-        final String zip = extras.getString("zip");
-
+        if (from.equals("data")){
+             data = extras.getString("data");
+        }
+        Log.i("WE'RE IN THE START","LOOK");
         // Send the message with the cat name
         new Thread(new Runnable() {
             @Override
@@ -59,7 +62,7 @@ public class PhoneToWatchService extends Service {
                 //first, connect to the apiclient
                 mApiClient.connect();
                 //now that you're connected, send a massage with the cat name
-                sendMessage("/" + from, zip);
+                sendMessage(from, data);
             }
         }).start();
 

@@ -36,6 +36,7 @@
         android:clickable="true"
         android:textAlignment="center"
         android:textSize="20dp"
+        android:layout_marginBottom="20dp"
         android:fadeScrollbars="false"
         android:elevation="1dp"
         android:onClick="useZip"/>
@@ -43,12 +44,20 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:text="Use my Current Location"
         android:id="@+id/currLoc"
         android:background="#6da6c9"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/enter"
         android:onClick="useLoc"/>
+
+    <com.twitter.sdk.android.core.identity.TwitterLoginButton
+        android:id="@+id/twitter_login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"/>
 
 </RelativeLayout>

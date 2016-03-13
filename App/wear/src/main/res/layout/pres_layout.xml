@@ -1,54 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="wrap_content"
+<android.support.wearable.view.BoxInsetLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="wrap_content" android:gravity="center" android:layout_gravity="center"
-    tools:context=".MainActivity" android:orientation="vertical" tools:deviceIds="wear_round">
-
+    tools:context=".MainActivity" tools:deviceIds="wear_round" >
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="120dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
         <TextView
-            android:layout_width="90dp"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="60% votes for Obama"
-            android:id="@+id/dem"
-            android:layout_marginLeft="20dp"
-            android:textSize="10dp"
-            android:textColor="#0a1ef9" />
-
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/county"
+            android:maxLines="2"
+            android:singleLine="false"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:text="Manitowaov County"
+            android:textColor="#000000" />
         <TextView
-            android:layout_width="90dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="40% votes for Romney"
-            android:id="@+id/rep"
-            android:layout_gravity="right"
-            android:textSize="10dp"
-            android:textColor="#f70404" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="California"
+            android:id="@+id/state"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="12dp"
+            android:textIsSelectable="false"
+            android:textColor="#000000" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="40%"
+                    android:id="@+id/dem"
+                    android:layout_gravity="left"
+                    android:textSize="20dp"
+                    android:textColor="#0818ff" />
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:lines="2"
+                    android:singleLine="false"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="% for Obama"
+                    android:layout_gravity="left"
+                    android:textSize="10dp"
+                    android:textColor="#0818ff" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="40%"
+                    android:id="@+id/rep"
+                    android:layout_gravity="right"
+                    android:textSize="20dp"
+                    android:textColor="#f70404" />
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:lines="2"
+                    android:singleLine="false"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="% for Romney"
+                    android:layout_gravity="right"
+                    android:textSize="10dp"
+                    android:textColor="#f70404" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/county"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20dp"
-        android:text="County"
-        android:textColor="#000000" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="CA"
-        android:id="@+id/state"
-        android:layout_gravity="center_horizontal"
-        android:textSize="40dp"
-        android:textIsSelectable="false"
-        android:textColor="#000000" />
 
 
-</LinearLayout>
+</android.support.wearable.view.BoxInsetLayout>

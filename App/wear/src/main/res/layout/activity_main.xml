@@ -3,17 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@drawable/flag">
-        <android.support.wearable.view.GridViewPager
-            android:id="@+id/pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:keepScreenOn="true"
-            android:layout_gravity="center" />
+    android:background="@drawable/back_flag">
+
     <android.support.wearable.view.DotsPageIndicator
         android:id="@+id/page_indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom">
     </android.support.wearable.view.DotsPageIndicator>
+
+    <android.support.wearable.view.GridViewPager
+        android:id="@+id/pager"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:keepScreenOn="true"
+        android:layout_gravity="center"
+        />
 </FrameLayout>

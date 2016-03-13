@@ -3,20 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.smita.represent.Details"
-    android:background="@drawable/flag">
+    android:background="@drawable/back_flag"
+    tools:context="com.example.smita.represent.Details">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal|top"
-        android:background="#dfffffff">
+        android:background="#ccffffff">
 
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/pic"
+            android:padding="2dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -27,101 +28,121 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_toRightOf="@+id/pic"
-            android:gravity="center"
+            android:gravity="left"
+            android:paddingTop="10dp"
             android:id="@+id/linearLayout">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Senator"
-                android:id="@+id/roleSen"
-                android:gravity="center_horizontal"
-                android:textColor="#000000"
-                android:textIsSelectable="false"
-                android:textSize="30dp"
-                android:layout_alignParentRight="false" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="First Name"
                 android:id="@+id/Name"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
                 android:gravity="center_horizontal"
                 android:textColor="#000000"
                 android:textIsSelectable="false"
-                android:textSize="30dp"
-                android:layout_alignParentRight="false" />
+                android:textSize="25dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Senator"
+                android:id="@+id/role"
+                android:paddingLeft="10dp"
+                android:textColor="#000000"
+                android:textIsSelectable="false"
+                android:textSize="18dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Party Affil"
                 android:id="@+id/partySen"
+                android:paddingLeft="10dp"
                 android:gravity="center_horizontal"
                 android:textColor="#000000"
                 android:textIsSelectable="false"
-                android:textSize="25dp"
+                android:textSize="18dp"
+                android:layout_alignParentRight="false" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="End of Term"
+                android:id="@+id/term"
+                android:paddingLeft="10dp"
+                android:gravity="center_horizontal"
+                android:textColor="#000000"
+                android:textIsSelectable="false"
+                android:textSize="18dp"
                 android:layout_alignParentRight="false" />
         </LinearLayout>
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearLayout"
             android:layout_centerHorizontal="true"
-            android:gravity="center"
+            android:gravity="left"
             android:id="@+id/linearlayout2"
             android:layout_marginTop="5dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Website URL"
-                android:id="@+id/website"
-                android:gravity="center_horizontal"
+                android:text="Committees"
+                android:paddingLeft="10dp"
+                android:paddingBottom = "5dp"
                 android:textColor="#000000"
                 android:textIsSelectable="false"
+                android:layout_gravity="center_horizontal"
                 android:textSize="25dp"
-                android:layout_alignParentRight="false" />
+                android:layout_alignParentRight="false"
+                android:textStyle="bold" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:id="@+id/scrollView" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Committee"
+                    android:paddingLeft="10dp"
+                    android:id="@+id/comm"
+                    android:textColor="#000000"
+                    android:textIsSelectable="false"
+                    android:textSize="15dp"
+                    android:layout_alignParentRight="false" />
+            </ScrollView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email Address"
-                android:id="@+id/email"
-                android:gravity="center_horizontal"
+                android:text="Bills Sponsored"
+                android:paddingLeft="10dp"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="8dp"
                 android:textColor="#000000"
                 android:textIsSelectable="false"
                 android:textSize="25dp"
-                android:layout_alignParentRight="false" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Twitter ID"
-                android:id="@+id/twitter"
-                android:gravity="center_horizontal"
-                android:textColor="#000000"
-                android:textIsSelectable="false"
-                android:textSize="25dp"
-                android:layout_alignParentRight="false" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Committee"
-                android:id="@+id/comm"
-                android:gravity="center_horizontal"
-                android:textColor="#000000"
-                android:textIsSelectable="false"
-                android:textSize="25dp"
-                android:layout_alignParentRight="false" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bills"
-                android:id="@+id/bill"
-                android:gravity="center_horizontal"
-                android:textColor="#000000"
-                android:textIsSelectable="false"
-                android:textSize="25dp"
-                android:layout_alignParentRight="false" />
+                android:layout_alignParentRight="false"
+                android:textStyle="bold" />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:id="@+id/scrollView2" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bills"
+                    android:id="@+id/bill"
+                    android:paddingLeft="10dp"
+                    android:textColor="#000000"
+                    android:textIsSelectable="false"
+                    android:textSize="15dp"
+                    android:layout_alignParentRight="false" />
+            </ScrollView>
+
         </LinearLayout>
 
     </RelativeLayout>

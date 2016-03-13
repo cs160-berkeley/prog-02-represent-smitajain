@@ -27,6 +27,7 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
     private List<Node> nodes = new ArrayList<>();
     final Service _this = this;
     private String globalZip = "empty";;
+    String extra1;
 
     @Override
     public void onCreate() {
@@ -67,7 +68,7 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
                         //when we find a connected node, we populate the list declared above
                         //finally, we can send a message
                         //sendMessage("/send_toast", "Goodjob!");
-                        sendMessage("hello","itsme");
+                        //sendMessage("hello", "itsme");
 //                        _this.stopSelf();
                     }
                 });
@@ -78,12 +79,11 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
     public int onStartCommand(Intent intent, int flags, int startId) {
         // Which cat do we want to feed? Grab this info from INTENT
         // which was passed over when we called startService
-        Bundle extras = intent.getExtras();
-
-        if (extras != null){
-            Log.i("look at me", "im actually free to be me");
-            globalZip = extras.getString("LOCATION");
+        final String extras = intent.getStringExtra("data");
+        if (extras.equals("rando")){
+            extra1 = intent.getStringExtra("COORDINATES");
         }
+
         // Send the message with the cat name
         new Thread(new Runnable() {
             @Override
@@ -92,13 +92,13 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
                 mWatchApiClient.connect();
                 //now that you're connected, send a massage with the cat name
                 //sendMessage("/" + "hello", globalZip);
-                if (!globalZip.equals("empty")){
-                    sendMessage("/send_bread",globalZip);
+                if (extras.equals("rando")){
+                    sendMessage("/send_coord", extra1);
                 }
                 else{
-                    Log.i("Guess where I ", "just launched from lmao");
-                    sendMessage("/send_toast", "Goodjob!");
+                    sendMessage("/send_bread",extras);
                 }
+
 
             }
         }).start();

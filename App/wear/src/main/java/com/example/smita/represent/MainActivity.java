@@ -12,18 +12,22 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.wearable.view.DotsPageIndicator;
 import android.support.wearable.view.FragmentGridPagerAdapter;
-import android.support.wearable.view.GridPagerAdapter;
 import android.support.wearable.view.GridViewPager;
 import android.util.Log;
 
-
-
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class MainActivity extends Activity{
-    private Random random = new Random();
 
-    private Integer zip = Integer.parseInt("94704");
+    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
+
+    private Random random = new Random();
+    private String[] ary;
+    private String from;
+    private int count;
+    String data;
 
     private SensorManager mSensorManager;
     private ShakeEventListener mSensorListener;
@@ -48,14 +52,21 @@ public class MainActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Log.i("THIS IS WHERE", "THE PARTY STARTS");
         final Resources res = getResources();
         final GridViewPager pager = (GridViewPager) findViewById(R.id.pager);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
+
         if(extras != null){
-            zip = Integer.parseInt(extras.getString("LOCATION"));
+            from = extras.getString("LOCATION");
+            if(from.equals("data")){
+                data = extras.getString("data");
+                ary = data.split(";");
+                count = ary.length;
+            }
+
         }
 
         mSensorListener = new ShakeEventListener();
@@ -65,15 +76,23 @@ public class MainActivity extends Activity{
 
             public void onShake() {
                 Log.i("HELLOFROM THE OUTSIDE","WORLD");
-                zip = Math.round(random.nextFloat() * 100000);
+                double tLat = (-81.1 - (random.nextFloat() * 36));
+                double tLon = 32.78+(random.nextFloat() * 8);
+                DecimalFormat df = new DecimalFormat("0.####");
+                df.setRoundingMode(RoundingMode.DOWN);
+                double oLat = Double.valueOf(df.format(tLat));
+                double oLon = Double.valueOf(df.format(tLon));
                 Intent sendIntent = new Intent(getBaseContext(), WatchToPhoneService.class);
-                sendIntent.putExtra("LOCATION" , zip.toString());
+                sendIntent.putExtra("COORDINATES", String.valueOf(oLat) + "," + String.valueOf(oLon));
+                sendIntent.putExtra("FROM","SHAKE");
+                sendIntent.putExtra("data","rando");
+                Log.d("COOORDINATESSS", String.valueOf(oLat) + "," + String.valueOf(oLon));
                 startService(sendIntent);
-                Log.i("HELLO", "WORLD" + zip.toString());
+                Log.i("HELLO", "WORLD");
             }
         });
 
-        mWatchFragment = new WatchFragment(this, getFragmentManager(), zip);
+        mWatchFragment = new WatchFragment(this, getFragmentManager());
         //---Assigns an adapter to provide the content for this pager---
         pager.setAdapter(mWatchFragment);
 
@@ -82,12 +101,10 @@ public class MainActivity extends Activity{
     }
     class WatchFragment extends FragmentGridPagerAdapter {
         final Context mContext;
-        private int Zips;
 
-        public WatchFragment(Context ctx, FragmentManager fm, Integer zips) {
+        public WatchFragment(Context ctx, FragmentManager fm) {
             super(fm);
             mContext = ctx;
-            Zips = zips;
         }
 
         @Override
@@ -97,7 +114,7 @@ public class MainActivity extends Activity{
 
         @Override
         public int getColumnCount(int i) {
-            return 4;
+            return count;
         }
 
         //---Go to current column when scrolling up or down (instead of default column 0)---
@@ -111,71 +128,27 @@ public class MainActivity extends Activity{
         public Fragment getFragment(int row, int col) {
             Fragment fragment;
             Bundle bundleZ = new Bundle();
-            if (col == 0){
-                bundleZ.putString("name", "Barbara Boxer");
-                bundleZ.putString("party", "Democrat");
-                bundleZ.putString("role", "Senator");
+            if ( col < count-1){
+                Log.i("This is for all", "the other ones");
+                String[] vals = ary[col].split(":");
+                bundleZ.putString("name", vals[0]);
+                Log.i("This is for all", vals[0]);
+                bundleZ.putString("party", vals[2]);
+                bundleZ.putString("role", vals[1]);
+                bundleZ.putString("personId", vals[3]);
+                bundleZ.putString("term", vals[4]);
                 fragment = new PersonView();
                 fragment.setArguments(bundleZ);
-
-            }
-            else if (col == 1){
-                bundleZ.putString("name", "Diane Fienstein");
-                bundleZ.putString("party", "Democrat");
-                bundleZ.putString("role", "Senator");
-                fragment = new PersonView();
-                fragment.setArguments(bundleZ);
-            }
-            else if (col ==2){
-                if (Zips == 94404){
-                    bundleZ.putString("name", "Jackie Sprier");
-                    bundleZ.putString("party", "Democrat");
-                    bundleZ.putString("role", "Representative");
-                    fragment = new PersonView();
-                    fragment.setArguments(bundleZ);
-                }
-                else if (Zips == 94704) {
-                    bundleZ.putString("name", "Barbara Lee");
-                    bundleZ.putString("party", "Democrat");
-                    bundleZ.putString("role", "Representative");
-                    fragment = new PersonView();
-                    fragment.setArguments(bundleZ);
-                }
-                else{
-                    bundleZ.putString("name", "Nancy Pelosi");
-                    bundleZ.putString("party", "Democrat");
-                    bundleZ.putString("role", "Representative");
-                    fragment = new PersonView();
-                    fragment.setArguments(bundleZ);
-                }
-
 
             }
             else{
-                if (Zips == 94704){
-                    bundleZ.putString("obama", "60% Votes for Obama");
-                    bundleZ.putString("romney", "40% Votes for Romney");
-                    bundleZ.putString("county", "Alameda County");
-                    bundleZ.putString("state", "California");
-                    fragment = new PresidentView();
-                    fragment.setArguments(bundleZ);
-                }
-                else if(Zips == 94404){
-                    bundleZ.putString("obama", "80% Votes for Obama");
-                    bundleZ.putString("romney", "20% Votes for Romney");
-                    bundleZ.putString("county", "San Mateo County");
-                    bundleZ.putString("state", "California");
-                    fragment = new PresidentView();
-                    fragment.setArguments(bundleZ);
-                }
-                else{
-                    bundleZ.putString("obama", "75% Votes for Obama");
-                    bundleZ.putString("romney", "25% Votes for Romney");
-                    bundleZ.putString("county", "Random County");
-                    bundleZ.putString("state", "California");
-                    fragment = new PresidentView();
-                    fragment.setArguments(bundleZ);
-                }
+                String[] vals = ary[col].split(":");
+                bundleZ.putString("obama", vals[3]);
+                bundleZ.putString("romney", vals[2]);
+                bundleZ.putString("county", vals[0]);
+                bundleZ.putString("state", vals[1]);
+                fragment = new PresidentView();
+                fragment.setArguments(bundleZ);
 
             }
 
