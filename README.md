@@ -8,7 +8,7 @@ Smita Jain ([smitajain@berkeley.edu](mailto:your_email@berkeley.edu))
 
 ## Demo Video
 
-See [Demo Video] (https://www.youtube.com/watch?v=fH-kJ6_xtFI&feature=youtu.be&hd=1)
+See [Demo Video] (https://www.youtube.com/watch?v=0FkK1Bwxajc)
 
 ## Screenshots
 
